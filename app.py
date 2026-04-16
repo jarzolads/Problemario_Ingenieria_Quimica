@@ -39,7 +39,7 @@ st.markdown("""
 with st.container():
     col_logo, col_text = st.columns([1, 4])
     with col_text:
-        st.markdown("<h1 class='titulo-docente'>🧪 IALabs: Repositorio de Ingeniería Química</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 class='titulo-docente'>🧪Repositorio de Ingeniería Química</h1>", unsafe_allow_html=True)
         st.markdown("### Dr. Jesús Andrés Arzola Flores")
         #st.info("Universidad Tecnológica de Tehuacán | Especialidad en Simulación y Optimización")
 
