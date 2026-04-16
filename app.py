@@ -1,163 +1,130 @@
 import streamlit as st
 from PIL import Image
 
-# 1. Configuración básica para una interfaz "premium" y centrada
+# 1. Configuración básica
 st.set_page_config(
     page_title="Repositorio de Problemas de Ingeniería Química - FIQ BUAP",
     page_icon="🧪",
-    layout="wide", # Usamos wide para columns, y luego centramos el contenido
+    layout="wide",
 )
 
-# --- CSS Personalizado para mejorar la estética ---
-# Esto añade un borde sutil, espaciado y estilos a las tarjetas y botones.
+# --- CSS Personalizado ---
 st.markdown("""
 <style>
-    .reportview-container .main .block-container{
-        padding-top: 2rem;
-    }
     .stApp {
         background-color: #f8f9fa;
     }
-    /* Estilo para las "tarjetas" de problemas */
     .problem-card {
         background-color: white;
-        padding: 25px;
+        padding: 20px;
         border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         border: 1px solid #eaecef;
-        margin-bottom: 25px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        margin-bottom: 10px;
+        transition: transform 0.2s ease;
     }
     .problem-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
-    /* Estilo del subtítulo dentro de la tarjeta */
-    .stSubheader {
-        font-weight: 700;
-        color: #31333f;
-        margin-top: 0;
-    }
-    /* Estilo del caption dentro de la tarjeta */
-    .stCaption {
-        color: #7d8089;
-        font-style: italic;
-    }
-    /* Estilo del botón */
     .stButton>button {
-        border-radius: 30px;
-        padding: 12px 24px;
+        border-radius: 20px;
         font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        transition: background-color 0.2s ease;
-    }
-    .stButton>button:hover {
-        opacity: 0.9;
-    }
-    /* Centrar contenido en las columnas */
-    .css-1r6slb0 { # class for st.columns inner contents
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        width: 100%;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# 2. ENCABEZADO CON LOGO Y TÍTULOS (Centrado usando columnas)
+# 2. ENCABEZADO
 with st.container():
-    col_logo, col_text = st.columns([1.5, 3.5])
+    col_logo, col_text = st.columns([1, 4])
     
     with col_logo:
-        # Cargamos y mostramos el logo (se asume que image_0.png está en el mismo directorio)
         try:
+            # Usamos el nombre exacto del archivo subido
             logo = Image.open('Logo.png')
-            st.image(logo, use_container_width=True, caption="FIQ - CIAYP Logo")
-        except FileNotFoundError:
-            st.warning("⚠️ Logo no encontrado. Asegúrate de que 'image_0.png' esté en el directorio de la aplicación.")
+            st.image(logo, use_container_width=True)
+        except:
+            st.write("🧪") # Icono de respaldo si no carga la imagen
     
     with col_text:
         st.title("📚 Repositorio de Problemas de Ingeniería Química")
-        st.markdown("<h2 style='text-align: center; color: #555;'>Módulo de Problemas Interactivos</h2>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center; font-size: 1.1em;'><b>Dr. Jesús Andrés Arzola Flores</b></p>", unsafe_allow_html=True)
-        st.caption("Facultad de Ingeniería Química | Benemérita Universidad Autónoma de Puebla")
+        st.markdown("### Facultad de Ingeniería Química | BUAP")
+        st.markdown("**Dr. Jesús Andrés Arzola Flores**")
 
-st.markdown("---")
-st.markdown("<br>", unsafe_allow_html=True)
+st.divider()
 
-# 3. CONFIGURACIÓN ÚNICA (GitHub)
-# Esto es esencial para que los enlaces se construyan automáticamente.
+# 3. CONFIGURACIÓN DE GITHUB
 USUARIO_GITHUB = "jarzolads"
 REPO_GITHUB = "Problemario_Ingenieria_Quimica"
 
-# 4. LISTA DE PROBLEMAS MEJORADA
-# Solo pones el nombre que quieres que se vea y el nombre del archivo en GitHub.
-# Puedes añadir descripciones breves aquí para mejorar la interfaz.
-# ¡RECUERDA CORREGIR EL ENLACE DE DRIVE EN EL ARCHIVO SI EXISTE! 
-# El primer problema ahora usa una clave especial para Drive.
+# 4. LISTA DE PROBLEMAS
+# He simplificado la lógica: si es un link completo (Drive), se usa tal cual.
+# Si es solo el nombre del archivo, se construye el link de GitHub.
 problemas = [
     {
         "titulo": "Balance de Materia y Energía", 
-        "archivo": "https://colab.research.google.com/drive/1OgHhVboBcZ5Rx3qaFs4ODryLQB8eAuzH?usp=sharing", # Solo la ID para Drive
-        "plataforma": "drive", # Indicamos que es Drive
+        "archivo": "https://colab.research.google.com/drive/1OgHhVboBcZ5Rx3qaFs4ODryLQB8eAuzH?usp=sharing", 
+        "tipo": "directo",
         "icono": "⚗️", 
         "descripcion": "Resolución de balances de masa y energía en sistemas reaccionantes."
     },
     {
         "titulo": "Simulación de Reactores", 
         "archivo": "simulacion_reactores.ipynb", 
+        "tipo": "github",
         "icono": "☢️",
-        "descripcion": "Modelado y simulación de reactores químicos (CSTR, PFR) en régimen estacionario."
+        "descripcion": "Modelado y simulación de reactores químicos (CSTR, PFR)."
     },
     {
         "titulo": "Termodinámica Avanzada", 
         "archivo": "termo_ejercicio.ipynb", 
+        "tipo": "github",
         "icono": "🌡️",
-        "descripcion": "Cálculos de equilibrio de fases y fugacidad para mezclas multicomponente."
+        "descripcion": "Cálculos de equilibrio de fases y fugacidad."
     },
     {
         "titulo": "Diseño de Plantas", 
         "archivo": "diseno_plantas.ipynb", 
+        "tipo": "github",
         "icono": "🏗️",
-        "descripcion": "Análisis tecnoeconómico y dimensionamiento preliminar de equipos de proceso."
+        "descripcion": "Análisis tecnoeconómico y dimensionamiento de equipos."
     }
 ]
 
-# 5. CREACIÓN DE LA INTERFAZ VISUAL "PREMIUM"
-st.subheader("📚 Listado de Problemas Disponibles")
-st.write("Haz clic en un problema para abrirlo directamente en el entorno interactivo de Google Colab.")
-st.markdown("<br>", unsafe_allow_html=True)
+st.subheader("Listado de Problemas Interactivos")
+st.write("Haz clic en el botón para abrir el cuaderno de trabajo en Google Colab.")
 
+# 5. GENERACIÓN DE INTERFAZ
 for p in problemas:
-    # Creamos una tarjeta visual más bonita usando markdown y css personalizado
-    st.markdown(f"""
-    <div class="problem-card">
-        <div style="display: flex; align-items: start; gap: 15px;">
-            <div style="font-size: 3em;">{p['icono']}</div>
-            <div>
-                <h3 style="margin: 0; padding: 0;">{p['titulo']}</h3>
-                <p class="stCaption" style="margin-top: 5px;">{p['descripcion']}</p>
-                <p class="stCaption" style="margin-top: 5px; font-size: 0.8em;">Archivo fuente: <code>{p['archivo']}</code></p>
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # El link directo se construye según la plataforma
-    if p.get("plataforma") == "drive":
-        # Enlace para Drive (asumiendo formato estándar)
-        url_directa = f"https://colab.research.google.com/drive/{p['archivo']}?usp=sharing"
+    # Lógica de construcción de URL corregida
+    if p["tipo"] == "directo":
+        url_final = p["archivo"]
     else:
-        # Enlace para GitHub
-        url_directa = f"https://colab.research.google.com/github/{USUARIO_GITHUB}/{REPO_GITHUB}/blob/main/{p['archivo']}"
+        # Construcción estándar para archivos en GitHub
+        url_final = f"https://colab.research.google.com/github/{USUARIO_GITHUB}/{REPO_GITHUB}/blob/main/{p['archivo']}"
     
-    # Botón visual dentro de la tarjeta (Streamlit no permite meter un botón de Streamlit dentro de un bloque HTML personalizado, así que lo ponemos debajo)
-    col_vacia, col_boton = st.columns([4, 1])
-    with col_boton:
-        st.link_button("🚀 Abrir en Colab", url_directa, type="primary")
+    # Renderizado de la tarjeta
+    with st.container():
+        col_info, col_btn = st.columns([4, 1])
+        
+        with col_info:
+            st.markdown(f"""
+            <div class="problem-card">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="font-size: 2.5em;">{p['icono']}</div>
+                    <div>
+                        <h4 style="margin: 0;">{p['titulo']}</h4>
+                        <p style="margin: 0; color: #666; font-size: 0.9em;">{p['descripcion']}</p>
+                    </div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+        
+        with col_btn:
+            st.write("") # Espaciado para alinear con la tarjeta
+            st.write("")
+            st.link_button("🚀 Abrir Colab", url_final, type="primary")
 
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown("---")
-# Un pequeño pie de página
-st.caption("© 2023 - Repositorio de Ingeniería Química - FIQ BUAP | Powered by Streamlit & Google Colab")
+st.divider()
+st.caption("© 2026 - Repositorio de Ingeniería Química - Dr. Jesús Andrés Arzola Flores")
