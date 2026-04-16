@@ -99,7 +99,7 @@ REPO_GITHUB = "Problemario_Ingenieria_Quimica"
 problemas = [
     {
         "titulo": "Balance de Materia y Energía", 
-        "archivo": "Github_Problemas_de_ingeniería_Química.ipynb", # Solo la ID para Drive
+        "archivo": "https://colab.research.google.com/drive/1OgHhVboBcZ5Rx3qaFs4ODryLQB8eAuzH?usp=sharing", # Solo la ID para Drive
         "plataforma": "drive", # Indicamos que es Drive
         "icono": "⚗️", 
         "descripcion": "Resolución de balances de masa y energía en sistemas reaccionantes."
