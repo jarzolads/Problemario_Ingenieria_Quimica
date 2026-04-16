@@ -4,7 +4,8 @@ import streamlit as st
 st.set_page_config(page_title="Repositorio de Problemas de Ingeniería Química", layout="centered")
 
 st.title("📚 Repositorio de Problemas de Ingeniería Química")
-st.subtitle("Facultad de Ingeniería Química BUAP")
+st.markdown("## Facultad de Ingeniería Química")
+st.markdown("## Benemérita Universidad Autónoma de puebla")
 st.write("Selecciona un problema para resolverlo directamente en Google Colab.")
 
 # 2. CONFIGURACIÓN ÚNICA (Esto es lo único que necesitas para que los links funcionen)
