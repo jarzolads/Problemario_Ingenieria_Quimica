@@ -52,7 +52,7 @@ problemas = [
         "titulo": "Balance de Materia y Energía en Destilación",
         "categoria": "Simulación",
         "descripcion": "Cálculo de flujos y composiciones usando DWSIM-Python.",
-        "archivo": "Github_Problemas_de_ingeniería_Química.ipynb",
+        "archivo": "https://colab.research.google.com/drive/1OgHhVboBcZ5Rx3qaFs4ODryLQB8eAuzH?usp=sharing",
         "icon": "⚗️"
     }
 ]
