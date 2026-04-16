@@ -50,6 +50,7 @@ with st.container():
     with col_text:
         st.title("📚 Repositorio de Problemas de Ingeniería Química")
         st.markdown("### Facultad de Ingeniería Química | BUAP")
+        st.markdown("#### Club de Inteligencia Artificial y Programación")
         st.markdown("**Dr. Jesús Andrés Arzola Flores**")
 
 st.divider()
