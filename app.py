@@ -1,9 +1,10 @@
 import streamlit as st
 
 # 1. Configuración básica (Interfaz limpia)
-st.set_page_config(page_title="Repositorio de Problemas", layout="centered")
+st.set_page_config(page_title="Repositorio de Problemas de Ingeniería Química", layout="centered")
 
-st.title("📚 Repositorio de Problemas Interactivos")
+st.title("📚 Repositorio de Problemas de Ingeniería Química")
+st.subtitle("Facultad de Ingeniería Química BUAP")
 st.write("Selecciona un problema para resolverlo directamente en Google Colab.")
 
 # 2. CONFIGURACIÓN ÚNICA (Esto es lo único que necesitas para que los links funcionen)
