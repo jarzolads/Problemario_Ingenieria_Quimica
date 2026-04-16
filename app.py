@@ -2,7 +2,7 @@ import streamlit as st
 
 # 1. CONFIGURACIÓN DE PÁGINA Y ESTILO PROFESIONAL
 st.set_page_config(
-    page_title="IALabs - Repositorio IQ", 
+    page_title="Repositorio de problemas de Ingeniería Química", 
     page_icon="🧪", 
     layout="wide"
 )
@@ -41,7 +41,7 @@ with st.container():
     with col_text:
         st.markdown("<h1 class='titulo-docente'>🧪 IALabs: Repositorio de Ingeniería Química</h1>", unsafe_allow_html=True)
         st.markdown("### Dr. Jesús Andrés Arzola Flores")
-        st.info("Universidad Tecnológica de Tehuacán | Especialidad en Simulación y Optimización")
+        #st.info("Universidad Tecnológica de Tehuacán | Especialidad en Simulación y Optimización")
 
 st.divider()
 
