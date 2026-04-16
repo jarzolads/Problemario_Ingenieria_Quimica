@@ -54,7 +54,7 @@ problemas = [
         "descripcion": "Cálculo de flujos y composiciones usando DWSIM-Python.",
         "archivo": "Github_Problemas_de_ingeniería_Química.ipynb",
         "icon": "⚗️"
-    },
+    }
     """
     {
         "titulo": "Producción de Bioetanol (Agave)",
