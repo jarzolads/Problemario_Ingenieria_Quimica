@@ -55,22 +55,6 @@ problemas = [
         "archivo": "Github_Problemas_de_ingeniería_Química.ipynb",
         "icon": "⚗️"
     }
-    """
-    {
-        "titulo": "Producción de Bioetanol (Agave)",
-        "categoria": "BioSTEAM",
-        "descripcion": "Modelado de biorrefinerías y análisis tecnoeconómico.",
-        "archivo": "bioetanol_agave.ipynb",
-        "icon": "🌱"
-    },
-    {
-        "titulo": "Cinética Química y Reactores",
-        "categoria": "Reactores",
-        "descripcion": "Resolución de sistemas de ecuaciones diferenciales en Colab.",
-        "archivo": "reactores_batch.ipynb",
-        "icon": "☢️"
-    }
-    """
 ]
 
 # 4. BARRA LATERAL (Filtros interactivos)
