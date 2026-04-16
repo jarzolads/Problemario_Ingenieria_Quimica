@@ -52,9 +52,10 @@ problemas = [
         "titulo": "Balance de Materia y Energía en Destilación",
         "categoria": "Simulación",
         "descripcion": "Cálculo de flujos y composiciones usando DWSIM-Python.",
-        "archivo": "destilacion_avanzada.ipynb",
+        "archivo": "Github_Problemas_de_ingeniería_Química.ipynb",
         "icon": "⚗️"
     },
+    """
     {
         "titulo": "Producción de Bioetanol (Agave)",
         "categoria": "BioSTEAM",
@@ -69,6 +70,7 @@ problemas = [
         "archivo": "reactores_batch.ipynb",
         "icon": "☢️"
     }
+    """
 ]
 
 # 4. BARRA LATERAL (Filtros interactivos)
